@@ -16,10 +16,16 @@ public class InvadersBehaviour : MonoBehaviour
     [Space]
     [SerializeField] private float fireRate = .5f;
 
+    private Transform invadersTransform;
     private int direction = 1;
     private bool verticalMove = false;
 
     private List<Invader> shootingInvaders = new();
+
+    private void Awake()
+    {
+        invadersTransform = transform;
+    }
 
     private void Start()
     {
@@ -71,19 +77,20 @@ public class InvadersBehaviour : MonoBehaviour
 
     private void Movement()
     {
-        transform.Translate(Time.deltaTime * horizontalSpeed * direction * transform.right);
+        invadersTransform.Translate(Time.deltaTime * horizontalSpeed * direction * invadersTransform.right);
 
         if (verticalMove)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - ascendingDistance);
+            invadersTransform.position = new Vector2(invadersTransform.position.x, invadersTransform.position.y - ascendingDistance);
             verticalMove = false;
         }
     }
 
     private void TakeShot()
     {
-        if (invaders.Any(i => i.isActiveAndEnabled))
+        if (shootingInvaders.Count > 0)
             shootingInvaders[Random.Range(0, shootingInvaders.Count)].FireProjectile();
+
         else
             CancelInvoke();
     }
@@ -98,7 +105,7 @@ public class InvadersBehaviour : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<IDamageable>().GetDamage(playerHealth.value);
+            collision.GetComponent<IDamageable>().TakeDamage(playerHealth.value);
         }
     }
 }

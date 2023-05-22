@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         gameOverMessage.text = string.Empty;
 
         if (SceneManager.GetActiveScene().name == GameScene.Game.ToString())
-            InvokeRepeating(nameof(CheckGameOverCondition), 0f, 2.0f);
+            InvokeRepeating(nameof(CheckGameOverCondition), 0f, 1.0f);
     }
 
     private void CheckGameOverCondition()

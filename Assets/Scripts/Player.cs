@@ -46,7 +46,7 @@ public class Player : MonoBehaviour, IDamageable
         projectileSpawner.InstantiateObject(firePoint.position, firePoint.rotation);
     }
 
-    public void GetDamage(float damage)
+    public void TakeDamage(float damage)
     {
         playerHealth.value -= damage;
         OnGetDamage?.Invoke();

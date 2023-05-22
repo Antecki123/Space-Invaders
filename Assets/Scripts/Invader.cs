@@ -26,7 +26,7 @@ public class Invader : MonoBehaviour, IDamageable
         projectileSpawner.InstantiateObject(firePoint.position, firePoint.rotation);
     }
 
-    public void GetDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
 

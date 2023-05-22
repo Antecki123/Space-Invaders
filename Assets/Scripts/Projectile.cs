@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
             var explosion = Instantiate(getHitAnimation, transform.position, transform.rotation);
             explosion.transform.SetParent(collision.gameObject.transform);
 
-            damageable.GetDamage(damage);
+            damageable.TakeDamage(damage);
             OnDestroyProjectile?.Invoke(gameObject);
         }
 
