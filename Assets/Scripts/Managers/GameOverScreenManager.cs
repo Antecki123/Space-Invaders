@@ -13,7 +13,7 @@ public class GameOverScreenManager : MonoBehaviour
     private GameManager gameManager;
 
     private void Awake() => gameManager = GetComponent<GameManager>();
-    private void Start() => updateValue?.Invoke();
+    private void Start() => updateValue.Invoke();
 
     public void NewGameButton()
     {

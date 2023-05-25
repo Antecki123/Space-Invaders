@@ -5,7 +5,9 @@ using UnityEngine;
 public class InvadersBehaviour : MonoBehaviour
 {
     [Header("Component References")]
-    [SerializeField] private List<Invader> invaders = new();
+    [SerializeField] private Invader invaderPrefab;
+    [SerializeField] private Vector2 invadersMatrixSize;
+    [Space]
     [SerializeField] private FloatVariable playerHealth;
     [SerializeField] private Collider2D leftBumper;
     [SerializeField] private Collider2D rightBumper;
@@ -20,35 +22,54 @@ public class InvadersBehaviour : MonoBehaviour
     private int direction = 1;
     private bool verticalMove = false;
 
-    private List<Invader> shootingInvaders = new();
+    private Vector2 positionOffset;
+    private List<Invader> shootingInvaders = new List<Invader>();
 
     private void Awake()
     {
         invadersTransform = transform;
+        positionOffset = new Vector2(-Mathf.RoundToInt(invadersMatrixSize.x / 2), 4);
     }
 
     private void Start()
     {
+        CreateInvadersWave();
+        SetBumpersPosition();
+
         UpdateShooters();
         InvokeRepeating(nameof(TakeShot), 2f, fireRate);
     }
 
     private void Update() => Movement();
 
-    public void MoveBumpers()
+    private void CreateInvadersWave()
     {
-        if (invaders.Any(i => i.isActiveAndEnabled))
+        for (int y  = 0; y < invadersMatrixSize.y; y++)
         {
-            var firstCollumn = invaders
+            for (int x = 0; x < invadersMatrixSize.x; x++)
+            {
+                var invader = Instantiate(invaderPrefab, new Vector2(x, -y) + positionOffset, invadersTransform.rotation);
+                invader.transform.SetParent(invadersTransform);
+                invader.ShipPosition = new Vector2Int(x, y);
+                invader.name = $"Invader [{x}, {y}]";
+            }
+        }
+    }
+
+    public void SetBumpersPosition()
+    {
+        if (Invader.Invaders.Any(i => i.isActiveAndEnabled))
+        {
+            var firstCollumn = Invader.Invaders
                 .Where(i => i.isActiveAndEnabled)
                 .Min(i => i.ShipPosition.x);
 
-            var lastCollumn = invaders
+            var lastCollumn = Invader.Invaders
                 .Where(i => i.isActiveAndEnabled)
                 .Max(i => i.ShipPosition.x);
 
-            var leftBumperPositionX = invaders.Find(i => i.ShipPosition.x == firstCollumn).transform.position.x;
-            var rightBumperPositionX = invaders.Find(i => i.ShipPosition.x == lastCollumn).transform.position.x;
+            var leftBumperPositionX = Invader.Invaders.Find(i => i.ShipPosition.x == firstCollumn).transform.position.x;
+            var rightBumperPositionX = Invader.Invaders.Find(i => i.ShipPosition.x == lastCollumn).transform.position.x;
 
             if (firstCollumn == lastCollumn)
                 rightBumper.enabled = false;
@@ -60,13 +81,13 @@ public class InvadersBehaviour : MonoBehaviour
 
     public void UpdateShooters()
     {
-        var collumnsCount = 13;
+        var collumnsCount = invadersMatrixSize.x;
         shootingInvaders.Clear();
 
         for (int i = 0; i < collumnsCount; i++)
         {
-            var shooter = invaders
-                .FindAll(e => e.ShipPosition.x == i && e.isActiveAndEnabled)
+            var shooter = Invader.Invaders
+                .FindAll(e => e.ShipPosition.x == i && e.enabled)
                 .OrderByDescending(e => e.ShipPosition.y)
                 .FirstOrDefault();
 
@@ -103,9 +124,9 @@ public class InvadersBehaviour : MonoBehaviour
             verticalMove = true;
         }
 
-        if (collision.CompareTag("Player"))
+        if (collision.TryGetComponent(out Player player))
         {
-            collision.GetComponent<IDamageable>().TakeDamage(playerHealth.value);
+            player.TakeDamage(playerHealth.value);
         }
     }
 }

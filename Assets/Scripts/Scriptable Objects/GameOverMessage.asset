@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameOverMessage
   m_EditorClassIdentifier: 
   text: 
-  discription: Forward the message to the end screen
+  discription: Send the message to the end screen

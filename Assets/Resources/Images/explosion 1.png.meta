@@ -3,7 +3,7 @@ guid: 480cd0b510784a34fb6f8a0370f30405
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,10 +64,12 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -1470,73 +1473,72 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      explosion 1_4: 70300101
+      explosion 1_0: -2111467851
+      explosion 1_1: -1499755035
+      explosion 1_10: 1915256321
+      explosion 1_11: -1747734474
       explosion 1_12: 1189776272
       explosion 1_13: -1824453203
-      explosion 1_45: 583310376
-      explosion 1_38: -277786767
-      explosion 1_19: -667674752
-      explosion 1_6: 1504225282
-      explosion 1_63: -1940657851
-      explosion 1_52: -112513315
-      explosion 1_50: 333863089
-      explosion 1_58: -683998729
-      explosion 1_35: 1947615334
-      explosion 1_42: 1116356121
-      explosion 1_11: -1747734474
-      explosion 1_36: -826148364
-      explosion 1_37: -1524465503
-      explosion 1_29: -655467277
-      explosion 1_48: -1822918256
-      explosion 1_60: 259249121
-      explosion 1_9: 533389979
-      explosion 1_44: -1693392779
-      explosion 1_3: 1694457009
-      explosion 1_49: 519057599
-      explosion 1_26: 194602782
-      explosion 1_40: 1632072784
-      explosion 1_2: 1729716467
-      explosion 1_7: -573145872
-      explosion 1_18: 1720605428
-      explosion 1_39: -775125335
       explosion 1_14: -969705325
+      explosion 1_15: 2002237126
+      explosion 1_16: -268058871
+      explosion 1_17: 153252640
+      explosion 1_18: 1720605428
+      explosion 1_19: -667674752
+      explosion 1_2: 1729716467
+      explosion 1_20: -889512322
+      explosion 1_21: -2061936650
+      explosion 1_22: -464160507
+      explosion 1_23: -1844468378
       explosion 1_24: 1897386637
       explosion 1_25: 1910205841
-      explosion 1_23: -1844468378
-      explosion 1_31: -442143027
-      explosion 1_17: 153252640
-      explosion 1_43: -463159974
-      explosion 1_0: -2111467851
-      explosion 1_47: -1690965534
-      explosion 1_34: 1309458475
-      explosion 1_15: 2002237126
+      explosion 1_26: 194602782
       explosion 1_27: 1655035415
-      explosion 1_16: -268058871
-      explosion 1_46: 295153794
-      explosion 1_57: 1884314228
-      explosion 1_22: -464160507
-      explosion 1_54: -1605606335
-      explosion 1_62: -1827813302
-      explosion 1_55: -1809191448
-      explosion 1_10: 1915256321
-      explosion 1_8: -926550974
-      explosion 1_56: -935140708
-      explosion 1_59: -847758915
-      explosion 1_1: -1499755035
-      explosion 1_53: 489898736
       explosion 1_28: -1062754479
-      explosion 1_21: -2061936650
-      explosion 1_41: -1648900967
-      explosion 1_32: -1455922466
-      explosion 1_20: -889512322
-      explosion 1_51: -1809267813
-      explosion 1_61: 1431016980
+      explosion 1_29: -655467277
+      explosion 1_3: 1694457009
       explosion 1_30: -957797732
+      explosion 1_31: -442143027
+      explosion 1_32: -1455922466
       explosion 1_33: 1423857469
+      explosion 1_34: 1309458475
+      explosion 1_35: 1947615334
+      explosion 1_36: -826148364
+      explosion 1_37: -1524465503
+      explosion 1_38: -277786767
+      explosion 1_39: -775125335
+      explosion 1_4: 70300101
+      explosion 1_40: 1632072784
+      explosion 1_41: -1648900967
+      explosion 1_42: 1116356121
+      explosion 1_43: -463159974
+      explosion 1_44: -1693392779
+      explosion 1_45: 583310376
+      explosion 1_46: 295153794
+      explosion 1_47: -1690965534
+      explosion 1_48: -1822918256
+      explosion 1_49: 519057599
       explosion 1_5: 1219051938
-  spritePackingTag: 
+      explosion 1_50: 333863089
+      explosion 1_51: -1809267813
+      explosion 1_52: -112513315
+      explosion 1_53: 489898736
+      explosion 1_54: -1605606335
+      explosion 1_55: -1809191448
+      explosion 1_56: -935140708
+      explosion 1_57: 1884314228
+      explosion 1_58: -683998729
+      explosion 1_59: -847758915
+      explosion 1_6: 1504225282
+      explosion 1_60: 259249121
+      explosion 1_61: 1431016980
+      explosion 1_62: -1827813302
+      explosion 1_63: -1940657851
+      explosion 1_7: -573145872
+      explosion 1_8: -926550974
+      explosion 1_9: 533389979
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

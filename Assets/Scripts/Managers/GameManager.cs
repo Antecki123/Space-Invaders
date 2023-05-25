@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static Action OnGameOverConditions;
     public enum GameScene { Game, Gameover }
 
     [Header("Game Stats")]
@@ -14,42 +16,33 @@ public class GameManager : MonoBehaviour
     private readonly string winText = "You win!";
     private readonly string loseText = "You lose!";
 
+    private void OnEnable() => OnGameOverConditions += GameOverCondition;
+    private void OnDisable() => OnGameOverConditions -= GameOverCondition;
+
     private void Start()
     {
         playerHealth.value = 3.0f;
         playerScore.value = 0.0f;
         gameOverMessage.text = string.Empty;
-
-        if (SceneManager.GetActiveScene().name == GameScene.Game.ToString())
-            InvokeRepeating(nameof(CheckGameOverCondition), 0f, 1.0f);
     }
 
-    private void CheckGameOverCondition()
+    private void GameOverCondition()
     {
         if (playerHealth.value <= 0)
         {
-            CancelInvoke();
-            Invader.InvadersCount = 0;
-
             gameOverMessage.text = loseText;
             LoadScene(GameScene.Gameover);
-
-            return;
         }
 
-        if (Invader.InvadersCount <= 0)
+        if (Invader.Invaders.Count <= 0)
         {
-            CancelInvoke();
-
             gameOverMessage.text = winText;
             LoadScene(GameScene.Gameover);
-
-            return;
         }
     }
 
     public void LoadScene(GameScene gameScene)
     {
-        SceneManager.LoadScene(gameScene.ToString());
+        SceneManager.LoadSceneAsync(gameScene.ToString(), LoadSceneMode.Single);
     }
 }
