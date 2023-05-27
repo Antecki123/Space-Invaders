@@ -1,6 +1,6 @@
 # Space-Invaders
  
 #### Screenshots
-![Image](Screenshoot%201.png)
-![Image](Screenshoot%202.png)
-![Image](Screenshoot%203.png)
+![Image](Screenshoot%201.jpg)
+![Image](Screenshoot%202.jpg)
+![Image](Screenshoot%203.jpg)
