@@ -30,3 +30,9 @@
 ![Image](Screenshoot%201.jpg)
 ![Image](Screenshoot%202.jpg)
 ![Image](Screenshoot%203.jpg)
+
+#### You can download and test the build of this game from: [TBD](https://github.com/Antecki123)
+
+
+#### Contributing:
+I appreciate any feedback or suggestions to improve the game. Please submit bug reports, ideas, or code contributions to my GitHub repository at: [Antecki123](https://github.com/Antecki123).
