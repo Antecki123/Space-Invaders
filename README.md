@@ -31,7 +31,7 @@
 ![Image](Screenshoot%202.jpg)
 ![Image](Screenshoot%203.jpg)
 
-#### You can download and test the build of this game from: [TBD](https://github.com/Antecki123)
+#### You can download and test the build of this game from: [Link](https://drive.google.com/file/d/12F8e3NXBEL-cIVdTlbI72DaYV46kwzl2/view?usp=drive_link)
 
 
 #### Contributing:
